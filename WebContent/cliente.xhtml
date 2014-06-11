@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h:dataTable value="#{clienteMB.clientes}" var="cliente" border="1" >
+			<h:column >
+				<f:facet name="header" >Nome</f:facet>
+				<h:outputText value="#{cliente.nome}" />
+			</h:column>
+			
+			<h:column>
+				<h:commandButton value="Editar" action="#{clienteMB.editar}" />
+			</h:column>
+		
+		</h:dataTable>
+		
+		
+		<h:panelGrid columns="2">
+			<h:outputText value="id: " />
+			<h:outputText value="#{clienteMB.cliente.id}" />
+
+			<h:outputText value="Nome: " />
+			<h:inputText value="#{clienteMB.cliente.nome}" />
+
+			<h:commandButton value="Salvar" action="#{clienteMB.salvar}" />
+			<h:commandButton value="Excluir" action="#{clienteMB.excluir}" />
+		</h:panelGrid>
+	</h:form>
+
+</h:body>
+
+</html>
